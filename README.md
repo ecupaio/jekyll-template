@@ -1,24 +1,8 @@
-# Jekyll SPT (Single Page Template)
-
-Welcome to the Jekyll Single Page Template. It is based off of the [single_page_template](https://github.com/democrats/frontend-templates/tree/master/single_page_template) with some modifications for Jekyll compatibility.
-
-Use the area below as a readme for your site:  
-# Site Title
-Built with the (Jekyll Single Page Template)[https://github.com/democrats/frontend-templates/tree/master/jekyll_spt]
-
-**Github Page:**
-
-**Admin:**
-
-**Prod:**
-
-**Guide for Admin:**
-
-Below is a detailed list of instructions on how to configure and use the Jekyll template:
+# Jekyll Template
 
 ## Setup and initial installation
 
-If this is your first time using the Jekyll Single Page Template, you may need to install some dependencies.
+If this is your first time using the Jekyll Template, you may need to install some dependencies.
 
 ### Ruby
 
@@ -177,7 +161,3 @@ Although it's possible to add images through Jekyll Admin's Static Files, I have
 3. run `grunt`
 
 Grunt will then watch for new images to be added and place the minified images in the `min_images` folder.
-
-## Deployment
-
-After you push to master go to the [SITE Jenkins job]()/job/Build%20Pipeline/) and select build with parameters. Once the job is finished, check your new site on [SITE-admin.democrats.org]() and changes will appear on production within 15 minutes.  

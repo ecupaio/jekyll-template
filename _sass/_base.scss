@@ -115,10 +115,10 @@ $facebook_brand: #3B5998;
 		}
 	}
 	&.buttons {
-		color: $brand_white;
+		color: $white;
 		.tweet-link {
 			.fa-twitter {
-				color: $brand_white;
+				color: $white;
 				@include transition;
 			}
 	        .fa-circle {
@@ -131,13 +131,13 @@ $facebook_brand: #3B5998;
 	            	color: $twitter_brand;
 				}
 	            .fa-circle {
-	                color: $brand_white;
+	                color: $white;
 	            }
 			}
 	    }
 	    .fb-link {
 			.fa-facebook {
-				color: $brand_white;
+				color: $white;
 				@include transition;
 			}
 	        .fa-circle {
@@ -150,7 +150,7 @@ $facebook_brand: #3B5998;
 					color: $facebook_brand;
 				}
 	            .fa-circle {
-	                color: $brand_white;
+	                color: $white;
 	            }
 			}
 	    }
@@ -162,30 +162,6 @@ $facebook_brand: #3B5998;
 	color: $footer_txt;
 	text-align: center;
 	clear: both;
-	font-size: 7pt;
-	a, .copyright-text {
-        font-size: 0.75em;
-    }
-	a {
-	    color: $copyright_link;
-	    text-decoration: none;
-	    &:hover {
-	      color: $copyright_link_hover;
-	    }
-  	}
-
-	.copyright-footer {
-		border: 1px solid $footer_txt;
-		width: 75%;
-		margin: auto;
-		display: inline-block;
-		.copyright-text {
-			padding: 1em 2em;
-			p {
-				margin: 0;
-			}
-		}
-	}
 }
 //Form Inputs
 input,textarea {
@@ -202,22 +178,5 @@ input,textarea {
 
 	&.submit {
 		white-space: normal;
-	}
-}
-//Breakpoints
-@media screen and (min-width: $size-large) {
-	div[class*="pure-u-lg-"] {
-		width: 100%;
-	}
-}
-
-@media screen and (min-width: $size-medium) {
-	div[class*="pure-u-md"] {
-		width: 100%;
-	}
-}
-@media screen and (min-width: $size-small) {
-	div[class*="pure-u-sm-"] {
-		width: 100%;
 	}
 }

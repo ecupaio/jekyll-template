@@ -1,23 +1,13 @@
 //Custom Styles
-//Brand Colors
-$brand_lt_blue: #00AEF3;
-$brand_dk_blue: #0F2446;
-$brand_alt_blue: #00589C;
-$brand_white: #fff;
-$brand_red: #E31818;
-$brand_dk_red: #841618;
-$brand_yellow: #FFDD00;
-$brand_orange: #F15822;
-$brand_gray: #F6F6F6;
-$brand_black: #000;
-$brand_teal: #00a87d;
-$brand_green: #29763B;
-$brand_purple: #A4288C;
-$brand_dk_purple: #4D2073;
+//Color Variables
+$charcoal: #333;
+$white: #fff;
+$blue: #3e73cb;
+
 //Theme colors
-$text_color: $brand_dk_blue;
-$primary_color: $brand_lt_blue;
-$secondary_color: $brand_white;
+$text_color: $charcoal;
+$primary_color: $blue;
+$secondary_color: $white;
 //Body and Heading text Colors
 $body_txt: $text_color;
 $body_link: $primary_color;

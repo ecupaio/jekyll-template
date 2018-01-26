@@ -1,9 +1,0 @@
-[nginx-access]
-log_group_name = /AppLogs/{{ app_name }}/nginx/access
-log_stream_name = {instance_id}
-file = /var/log/nginx/access.log
-
-[nginx-error]
-log_group_name = /AppLogs/{{ app_name }}/nginx/error
-log_stream_name = {instance_id}
-file = /var/log/nginx/error.log

@@ -1,48 +1,15 @@
-//Bucket Fonts
+//Font face
+$font-name: "font-name";
+$font-path: 'http://font.com/font';
 @font-face {
-  font-family: "Gotham-Bold";
-  src: url("https://frontend-assets.dnc.org/fonts/Gotham-Bold.eot");
-  src: url("https://frontend-assets.dnc.org/fonts/Gotham-Bold.otf") format("otf"),
-  url("https://frontend-assets.dnc.org/fonts/Gotham-Bold.svg") format('svg'),
-  url("https://frontend-assets.dnc.org/fonts/Gotham-Bold.ttf") format('ttf'),
-  url("https://frontend-assets.dnc.org/fonts/Gotham-Bold.woff") format('woff');
+  font-family: $font-name;
+  src: url("$font-path.eot");
+  src: url("$font-path.otf") format("otf"),
+  url("$font-path.svg") format('svg'),
+  url("$font-path.ttf") format('ttf'),
+  url("$font-path.woff") format('woff');
   font-weight: normal;
   font-style: normal;
-}
-
-@font-face {
-  font-family: "GothamBook";
-  src: url("https://frontend-assets.dnc.org/fonts/GothamBook.eot");
-  src: url("https://frontend-assets.dnc.org/fonts/GothamRounded-Book.otf") format("otf"),
-  url("https://frontend-assets.dnc.org/fonts/GothamBook.ttf") format('ttf'),
-  url("https://frontend-assets.dnc.org/fonts/GothamBook.svg") format('svg'),
-  url("https://frontend-assets.dnc.org/fonts/GothamBook.woff") format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-    font-family: 'icomoon';
-    src: url('https://s3.amazonaws.com/frontend-assets.dnc.org/fonts/icomoon-fonts/icomoon.eot');
-    src: url('https://s3.amazonaws.com/frontend-assets.dnc.org/fonts/icomoon-fonts/icomoon.eot?#iefix') format('embedded-opentype'), url('https://s3.amazonaws.com/frontend-assets.dnc.org/fonts/icomoon-fonts/icomoon.woff') format('woff'), url('https://s3.amazonaws.com/frontend-assets.dnc.org/fonts/icomoon-fonts/icomoon.ttf') format('truetype'), url('https://s3.amazonaws.com/frontend-assets.dnc.org/fonts/icomoon-fonts/icomoon.svg#icomoon') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-[class^="icon-"],
-[class*=" icon-"] {
-    font-family: 'icomoon' !important;
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-//Circle D
-.icon-uniE601:before {
-    content: "\e601";
 }
 
 //Fonts
