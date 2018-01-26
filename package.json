@@ -1,0 +1,22 @@
+{
+  "name": "single_page_template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": ">=0.4.0",
+
+    "grunt-contrib-imagemin": "^1.0.0",
+
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-newer": "^1.1.2",
+    
+    "imagemin-mozjpeg": "^5.1.0",
+    "imagemin-pngquant": "^4.2.2"
+  }
+}

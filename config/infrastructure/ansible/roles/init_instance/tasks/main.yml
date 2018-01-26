@@ -1,0 +1,42 @@
+---
+- name: Update hosts file
+  command: "echo '127.0.0.1 {{ app_admin_hostname }}' >> /etc/hosts"
+
+- name: Write Nginx application configuration
+  template:
+    src: app.conf.j2
+    dest: "/etc/nginx/conf.d/jekyll.conf"
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Start Jekyll
+  command: "/usr/local/bin/bundle exec /usr/local/bin/jekyll serve --detach --host {{ app_admin_hostname }} --port 8080"
+  args:
+    chdir: "{{ app_deployment_path }}/{{ repo_name }}"
+  become_user: ec2-user
+
+- name: Restart nginx
+  service:
+    name: nginx
+    state: restarted
+
+- name: Initial sync to S3
+  command: "aws s3 sync --delete . s3://{{ s3_bucket }}"
+  args:
+    chdir: "{{ app_deployment_path }}/{{ repo_name }}/_site"
+  become_user: ec2-user
+
+- name: Add Git Cron script
+  template:
+    src: push-site-updates.sh.j2
+    dest: "{{ app_deployment_path }}/scripts/push-site-updates.sh"
+    owner: ec2-user
+    group: ec2-user
+    mode: 0755
+
+- name: Push content changes back to git if there are any
+  cron:
+    minute: "*/2"
+    user: ec2-user
+    job: "{{ app_deployment_path }}/scripts/push-site-updates.sh | tee {{ app_deployment_path }}/scripts/changelog.log"

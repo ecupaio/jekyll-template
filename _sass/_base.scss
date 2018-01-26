@@ -1,0 +1,223 @@
+@import "mixins";
+html,
+body {
+	margin:0;
+	padding:0;
+	height:100%;
+	width: 100%;
+}
+* {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+//Default Fonts
+h1, h2, h3, h4, h5 {
+	font-family: $header-font;
+	color: $heading;
+}
+body {
+	font-family: $body-font;
+	font-size: 14pt;
+	color: $body_txt;
+}
+b, strong {
+	font-family: $header-font;
+	font-weight: bold;
+}
+
+//Links
+a {
+	font-weight: bold;
+	text-decoration: none;
+	color: $body_link;
+	@include transition;
+	&:hover, &:active, &:focus {
+		color: $body_link_hover;
+	}
+}
+//PureCSS Buttons
+.pure-button {
+	border-radius: 0;
+	background-color: $button_bg;
+	border: 3px solid $button_bg;
+	color: $button_txt;
+	white-space: normal;
+	font-family: $header_font;
+	&:hover, &:focus {
+		background-image: none;
+		background-color: $hover_button_bg;
+		color: $hover_button_txt;
+		@include transition;
+	}
+}
+#wrapper {
+	min-height: 100%;
+	position:relative;
+}
+//Header
+#header {
+	background: $header_bg;
+	color: $header_txt;
+
+	h1, h2, h3, h4, h5 {
+		color: $header_txt;
+	}
+}
+//PureCSS Grids
+/* fix for IE and Firefox responsiveness */
+.pure-g {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	-ms-flex-flow: row wrap;
+	flex-flow: row wrap;
+}
+.pure-g [class *= "pure-u"] {
+	font-family: $body-font;
+}
+.pure-g {
+	font-family: $body-font;
+}
+//BSD Form
+
+.signup-form {
+	padding: 1em;
+	width: 100%;
+	background: $form_bg;
+		color: $form_txt;
+	.pure-button {
+		text-transform: uppercase;
+		font-weight: bold;
+		width: 100%;
+		background: $form_btn_bg;
+		color:  $form_btn_txt;
+		&:hover {
+			@include transition;
+			background: $form_btn_txt;
+			color: $form_btn_bg;
+		}
+	}
+}
+//Social Share
+$twitter_brand: #1da1f2;
+$facebook_brand: #3B5998;
+.social-share {
+	display: block;
+	margin-top: 1em;
+	&.links {
+		i {
+			font-size: 1.5em;
+		}
+		a:nth-child(2) {
+			margin-left: 1em;
+		}
+	}
+	&.buttons {
+		color: $brand_white;
+		.tweet-link {
+			.fa-twitter {
+				color: $brand_white;
+				@include transition;
+			}
+	        .fa-circle {
+	            color: $twitter_brand;
+				@include transition;
+	        }
+			&:hover {
+				cursor: pointer;
+				.fa-twitter {
+	            	color: $twitter_brand;
+				}
+	            .fa-circle {
+	                color: $brand_white;
+	            }
+			}
+	    }
+	    .fb-link {
+			.fa-facebook {
+				color: $brand_white;
+				@include transition;
+			}
+	        .fa-circle {
+	            color: $facebook_brand;
+				@include transition;
+	        }
+			&:hover {
+				cursor: pointer;
+				.fa-facebook {
+					color: $facebook_brand;
+				}
+	            .fa-circle {
+	                color: $brand_white;
+	            }
+			}
+	    }
+	}
+}
+//Footer
+#footer {
+	background-color: $footer_bg;
+	color: $footer_txt;
+	text-align: center;
+	clear: both;
+	font-size: 7pt;
+	a, .copyright-text {
+        font-size: 0.75em;
+    }
+	a {
+	    color: $copyright_link;
+	    text-decoration: none;
+	    &:hover {
+	      color: $copyright_link_hover;
+	    }
+  	}
+
+	.copyright-footer {
+		border: 1px solid $footer_txt;
+		width: 75%;
+		margin: auto;
+		display: inline-block;
+		.copyright-text {
+			padding: 1em 2em;
+			p {
+				margin: 0;
+			}
+		}
+	}
+}
+//Form Inputs
+input,textarea {
+	&:not([type=submit]):not([type=file]):not([type=radio]):not([type=checkbox]) {
+		width: 100%;
+		padding: 0.5em;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		border: 0;
+	}
+	&:active, &:focus {
+		outline: 0;
+	}
+
+	&.submit {
+		white-space: normal;
+	}
+}
+//Breakpoints
+@media screen and (min-width: $size-large) {
+	div[class*="pure-u-lg-"] {
+		width: 100%;
+	}
+}
+
+@media screen and (min-width: $size-medium) {
+	div[class*="pure-u-md"] {
+		width: 100%;
+	}
+}
+@media screen and (min-width: $size-small) {
+	div[class*="pure-u-sm-"] {
+		width: 100%;
+	}
+}

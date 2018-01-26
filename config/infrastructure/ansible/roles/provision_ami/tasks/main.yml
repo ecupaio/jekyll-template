@@ -1,0 +1,37 @@
+---
+- name: Check out app code
+  git:
+    repo: ssh://git@github.com/democrats/{{ repo_name }}.git
+    dest: "{{ app_deployment_path }}/{{ repo_name }}"
+    accept_hostkey: yes
+    key_file: /home/ec2-user/.ssh/id_rsa
+  become_user: ec2-user
+
+- name: Create scripts directory
+  file:
+    path: "{{ app_deployment_path }}/scripts"
+    owner: ec2-user
+    group: ec2-user
+    mode: 0755
+    state: directory
+
+- name: Set Nginx service to start at boot time
+  service:
+    name: nginx
+    enabled: yes
+
+- name: Bundle install
+  bundler:
+    state: present
+    chdir: "{{ app_deployment_path }}/{{ repo_name }}"
+  become_user: ec2-user
+    
+- name: Set monitoring cron for memory and swap
+  cron:
+    minute: "*/5"
+    job: /dnc/local/aws-scripts-mon/mon-put-instance-data.pl --mem-util --swap-util --auto-scaling --aggregated --from-cron
+
+- name: Set monitoring cron for root disk
+  cron:
+    minute: "*/5"
+    job: /dnc/local/aws-scripts-mon/mon-put-instance-data.pl --disk-space-util --disk-path=/ --auto-scaling --aggregated --from-cron

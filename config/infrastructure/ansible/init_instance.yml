@@ -1,0 +1,7 @@
+---
+# Called by cloud-init to be run at instance creation.
+- hosts: localhost
+  become: yes
+  become_method: sudo
+  roles:
+    - role: init_instance

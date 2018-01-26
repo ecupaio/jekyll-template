@@ -1,0 +1,35 @@
+---
+- name: Forward /var/log/messages to CloudWatch
+  template:
+    src: messages.conf.j2
+    dest: /etc/awslogs/config/messages.conf
+
+- name: Forward /var/log/audit/audit.log to CloudWatch
+  template:
+    src: audit.conf.j2
+    dest: /etc/awslogs/config/audit.conf
+
+- name: Forward /var/log/cron to CloudWatch
+  template:
+    src: cron.conf.j2
+    dest: /etc/awslogs/config/cron.conf
+
+- name: Forward /var/log/secure to CloudWatch
+  template:
+    src: secure.conf.j2
+    dest: /etc/awslogs/config/secure.conf
+
+- name: Forward nginx logs CloudWatch
+  template:
+    src: nginx.conf.j2
+    dest: /etc/awslogs/config/nginx.conf
+
+- name: Forward provisioning logs CloudWatch
+  template:
+    src: provisioning.conf.j2
+    dest: /etc/awslogs/config/provisioning.conf
+
+- name: Forward Jekyll changelogs CloudWatch
+  template:
+    src: changelog.conf.j2
+    dest: /etc/awslogs/config/changelog.conf

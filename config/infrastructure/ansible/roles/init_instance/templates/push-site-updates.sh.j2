@@ -1,0 +1,19 @@
+#!/bin/bash
+
+SITE_PATH={{ app_deployment_path }}/{{ repo_name }}
+echo $(date)
+pushd $SITE_PATH
+  echo "Checking for pending changes"
+  if [[ -n $(git status -s) ]];then
+    echo "Changes found, update repo."
+    git pull
+    echo "Committing changes back to Git"
+    git add .
+    git commit -a -m "Automated commit from Jekyll server cron job."
+    git push
+    echo "Pushed back to git repo."
+    echo "Syncing to s3"
+    cd _site && aws s3 sync --delete . s3://{{ s3_bucket }}
+    aws cloudfront create-invalidation --distribution-id {{ cloudfront_distribution }} --paths "/*"
+  fi
+popd

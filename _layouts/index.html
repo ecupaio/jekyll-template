@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% if site.ga %}
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70251-65"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+
+      gtag('config', '{{ site.ga }}');
+    </script>
+    {% endif %}
+    {% if site.gtm %}
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','{{ site.gtm }}');</script>
+    <!-- End Google Tag Manager -->
+    {% endif %}
+    <meta charset="utf-8">
+    {% if page.url == "/error.html" %}
+    <meta http-equiv="refresh" content="3; url=/">
+    {% endif %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Title and Meta Text -->
+    <title>{{ site.title }}</title>
+    <meta content="{{ site.description }}" name="description">
+    <!-- Facebook Meta -->
+    <meta property="og:url" content="{{ site.url }}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ site.title }}">
+    <meta property="og:description" content="{{ site.description }}">
+    <meta property="og:image" content="{{ site.meta_img }}">
+    <!-- Twitter Meta -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@TheDemocrats">
+    <meta name="twitter:creator" content="@TheDemocrats">
+    <meta name="twitter:title" content="{{ site.title }}">
+    <meta name="twitter:description" content="{{ site.description }}">
+    <meta name="twitter:image" content="{{ site.meta_img }}">
+    <!-- Pure CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+    <!-- CSS -->
+    {% include base.html %}
+    <link href="{{ base }}/css/style.css" rel="stylesheet" type="text/css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Favicon -->
+    <link rel="icon" href="https://s3.amazonaws.com/frontend-assets.dnc.org/images/D-circle-logo-favicon.png">
+    <!-- Jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <!-- Twitter Popup -->
+    <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+</head>
+
+<body>
+    {% if site.gtm %}
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ site.gtm }}"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    {% endif %}
+    <div id="wrapper">
+        <div id="header">
+            <h1>{{ site.title }}</h1>
+        </div>
+        <div id="main">
+              {% include form.html form-url="//my.democrats.org/page/sapi/bsd-api-test" %}
+              {% include social_share.html layout="links" tweet="tweet text comin at ya" url="https://democrats.org" %}
+        </div>
+    </div>
+    <div id="footer">
+        <div class="copyright-footer">
+            <div class="copyright-text">
+                <p>Paid for by the Democratic National Committee (202) 863‑8000.</p>
+                <p>This communication is not authorized by any candidate or candidate's committee.</p>
+            </div>
+        </div>
+        <p><a href="https://www.democrats.org/more/privacy-policy" target="_blank">Privacy Policy</a></p>
+    </div>
+    <!-- Scripts -->
+    <script src="{{ base }}/site_functions.js"></script>
+</body>

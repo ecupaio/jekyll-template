@@ -1,0 +1,11 @@
+---
+app_name: ""
+repo_name: ""
+app_hostname: ""
+app_admin_hostname: ""
+s3_bucket: ""
+cloudfront_distribution: ""
+
+nginx_user: "nginx"
+app_environment: "production"
+app_deployment_path: "/home/ec2-user"

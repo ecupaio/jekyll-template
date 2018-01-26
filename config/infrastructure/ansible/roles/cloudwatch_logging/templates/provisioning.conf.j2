@@ -1,0 +1,10 @@
+[provisioning]
+initial_position = start_of_file
+log_group_name = /AppLogs/{{ app_name }}/provisioning
+log_stream_name = {instance_id}
+file = /var/log/cloud-init-output.log
+
+[init_instance]
+log_group_name = /AppLogs/{{ app_name }}/init_instance
+log_stream_name = {instance_id}
+file = {{ app_deployment_path }}/provisioning.log

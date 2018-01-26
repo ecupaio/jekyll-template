@@ -1,0 +1,154 @@
+//Default Transition
+@mixin transition {
+	-webkit-transition: all $transition_duration ease;
+	-moz-transition: all $transition_duration ease;
+	-o-transition: all $transition_duration ease;
+	transition: all $transition_duration ease;
+}
+@mixin custom_transition($prop...) {
+	-webkit-transition-property: $prop;
+	-moz-transition-property: $prop;
+	-o-transition-property: $prop;
+	transition-property: $prop;
+	-webkit-transition-duration: $transition_duration;
+	-moz-transition-duration: $transition_duration;
+	-o-transition-duration: $transition_duration;
+	transition-duration: $transition_duration;
+	-webkit-transition-timing-function: ease;
+	-moz-transition-timing-function: ease;
+	-o-transition-timing-function: ease;
+	transition-timing-function: ease;
+}
+//Transform
+@mixin transform($prop...) {
+	-webkit-transform: $prop;
+	-moz-transform: $prop;
+	transform: $prop;
+}
+//Link Underline
+@mixin hover_underline {
+	&:after {
+	    content: '';
+	    height: 3px;
+	    position: absolute;
+	    bottom: 0.5em;
+	    left: 0;
+	    width: 100%;
+	    transform: scaleX(0);
+	    background-color: $body_link;
+	    @include custom_transition(all 0.5s ease);
+	    -webkit-transform-origin: center;
+	    -ms-transform-origin: center;
+	    transform-origin: center;
+	}
+
+	&:hover, &.active {
+	    cursor: pointer;
+	    color: $body_link;
+	    &:after {
+	        transform: scaleX(1);
+	    }
+	}
+}
+//Headings
+@mixin headings($from: 1, $to: 6){
+    @for $i from $from through $to{
+      h#{$i}{
+        @content
+      }
+    }
+}
+//Box Shadow
+@mixin box-shadow {
+	-webkit-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.5);
+    -moz-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.5);
+    box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.5);
+}
+//Rounded Social Share Buttons
+@mixin social_share_rounded {
+  i {
+    background-color: $button_bg;
+    border-radius: 2em;
+    color: $button_txt;
+    display: inline-block;
+    height: 2em;
+    line-height: 2em;
+    width: 2em;
+    text-align: center;
+  }
+  .fa-twitter {
+    margin-left: 1em;
+  }
+	a.fb-link:hover, a.fb-link:active, a.fb-link:focus {
+	  text-decoration: none;
+	}
+  i:hover {
+  	@include transition;
+    background-color: $button_txt;
+    color: $button_bg;
+  }
+}
+
+//Breakpoints for mobile
+/* Usage: easily set breakpoints for small, medium, and large screens
+Either pass the px number through individually, or set it as a variable */
+@mixin bp-large {
+  @media only screen and (max-width: $size-large) {
+    @content;
+  }
+}
+
+@mixin bp-medium {
+  @media only screen and (max-width: $size-medium) {
+    @content;
+  }
+}
+
+@mixin bp-small {
+  @media only screen and (max-width: $size-small) {
+    @content;
+  }
+}
+// Add Gutters - include in any section you want to have gutters, such as the form
+@mixin gridGutters($grid-gutters) {
+	//Gutter Padding Method
+	.pure-g  div[class*="pure-u-"] {
+		padding: $grid-gutters;
+	}
+}
+//Mixin if you want equal-height columns
+@mixin flexGrid($gutter-border,$grid-bg) {
+	padding: 0;
+	border-width: $gutter-border;
+	border-color: $grid-bg;
+	border-style: solid;
+}
+//Flexbox
+@mixin flexbox {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+//Section Padding
+@mixin headerPadding($header-padding) {
+ #header {
+ 	padding: $header-padding;
+ }
+}
+@mixin bodyPadding($body-padding) {
+	#main {
+		padding: $body-padding;
+	}
+	@media screen and (max-width: $size-medium) {
+        #main {
+            padding: $body-padding-mobile;
+        }
+    }
+}
+@mixin footerPadding($footer-padding) {
+	#footer {
+		padding: $footer-padding;
+	}
+}

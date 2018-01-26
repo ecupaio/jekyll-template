@@ -1,0 +1,8 @@
+---
+# Used by the Packer Ansible local provisioner.
+- hosts: localhost
+  become: yes
+  become_method: sudo
+  roles:
+    - role: provision_ami
+    - role: cloudwatch_logging
