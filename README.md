@@ -86,10 +86,11 @@ Below is a list of what each variable displays and how to edit them:
 Jekyll allows you to inject HTML into your content with premade html snippets. There are several includes that come with this template:
 
 *base.html*  
-Base is a helpful include from [Rico Sta. Cruz](https://ricostacruz.com/til/relative-paths-in-jekyll) that helps create relative paths that work in github pages as well as local development. It's used for the internal JS and CSS files sources for the index.html.
+Base is a helpful include from [Rico Sta. Cruz](https://ricostacruz.com/til/relative-paths-in-jekyll) that helps create relative paths that work in github pages as well as local development. It's used for the internal JS and CSS files sources for the index.html. use `{{ base }}` as a prefix to get to the root. Ex: `{{ base }}/css/style.css`
 
 *form.html*  
-Signup forms are pretty standard for all DNC microsites, hence the form include. All you have to do is get the form url and you can add a BSD form to your microsite with relative ease: `{% include form.html form-url="//your-form-url.com" %}`
+
+`{% include form.html form-url="//your-form-url.com" %}`
 
 *social_share.html*  
 Social share is just a pair of pre-styled Facebook and Twitter icon links that you can drop anywhere in your project. The social share has params for you to customize the tweet text and url, plus two layouts. Below is an example include:
