@@ -35,7 +35,7 @@ You should messages about packages being installed, ending with something like: 
 
 Now you should be able to start your local jekyll server:
 
-`jekyll serve --watch`
+`grunt`
 
 Go to `localhost:4000` to see it in action and `localhost:4000/admin` to access the admin panel
 
@@ -94,7 +94,7 @@ Base is a helpful include from [Rico Sta. Cruz](https://ricostacruz.com/til/rela
 
 *social_share.html*  
 Social share is just a pair of pre-styled Facebook and Twitter icon links that you can drop anywhere in your project. The social share has params for you to customize the tweet text and url, plus two layouts. Below is an example include:
-`{% include social_share.html layout="buttons" tweet="Tweet text" url="https://democrats.org" %}`
+`{% include social_share.html layout="buttons" tweet="Tweet text" url="https://example.com" %}`
 
 `layout`:
 * `links` (default if not specified)
@@ -120,6 +120,8 @@ The base styles can be found in `_sass/_base.scss`.
 #### PureCSS
 [PureCSS](https://purecss.io/) is the default library for this template. Some helpful tools from PureCSS are [buttons](https://purecss.io/buttons/) and [grids](https://purecss.io/grids/). Gutters have been added between the grid columns for layout purposes and can be adjusted through the `$grid-gutters` variable on `_sass/_custom.scss`.
 
+Responsive grids are configured with the breakpoints mixin so do not worry about 
+
 #### Mixins
 
 **Breakpoints**  
@@ -140,25 +142,17 @@ Use `@include box-shadow`for an elegant shaddow on divs and the like.
 Use `@include headings` to apply styles for heading tags (eg `<h1>`).
 
 **Transitions**  
-Use `@include transition` to add a `transition: all $transition_duration ease` property with browser prefixes. The `$transition_duration` variable can be modified at the top of `custom.scss`
+Use `@include transition(all)` to add a `transition: all $transition_duration ease` property with browser prefixes. The `$transition_duration` variable can be modified at the top of `custom.scss`
 
-Use `@include custom_transition(PROPERTIES)` to apply a transition to specific CSS properties. For example, `@inculde custom_transition(height,opacity)` would apply a transition to only the height and opacity properties.
+For other transitions properties, just add them as comma separated parameters in the include: `@include transition(opacity,color)`.
 
 **Transforms**  
 Use `@include transform(VALUES)` to apply a transform with browser prefixes. For example, use `@include transform(translateX(100%))` to apply a translateX to your property.
 
 ### JS
 
-Add javascript files to `_includes/js/`, then include the js file with liquid in `site_functions.js`(in the root). Ex: `{% include js/social_links.js %}`. All js files will concatenate in `js/site_functions.js` and load at the bottom of `index.html`.
-
-There is a blank `site_functions.js` file in the `includes/js` directory for you to start your site with.
+Add javascript files to the `js` directory and grunt will output uglified files to the `js/min` directory.
 
 ### Images
 
-Although it's possible to add images through Jekyll Admin's Static Files, I have added an images folder that has an image minifier for page load optimization. Follow the instruction below to install dependencies and run the image minifier
-
-1. cd into your repo
-2. run `npm install`
-3. run `grunt`
-
-Grunt will then watch for new images to be added and place the minified images in the `min_images` folder.
+Add images to the `images` directory and grunt will output the minified images to the `min_images` directory so you can have a backup of original images.

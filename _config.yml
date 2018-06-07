@@ -1,28 +1,27 @@
 ---
 title: Single Page Template
 description: site description
-meta_img: https://uploads.democrats.org/Dev_assets/facebook_D_logo.png
+meta_img:
 twitter:
-favicon: 
+favicon:
 url:
 ga:
 gtm:
 timezone: America/New York
 future: true
-livereload: true
 markdown: kramdown
 kramdown:
   auto_ids: false
-plugins:
-- uglifier
-- jekyll-admin
 exclude:
 - Gemfile
 - Gemfile.lock
 - node_modules
+- gruntfile.js
 sass:
   sass_dir: _sass
   style: compressed
+plugins:
+  - jekyll-sitemap  
 defaults:
 - scope:
     path: ''

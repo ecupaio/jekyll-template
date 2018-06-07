@@ -1,27 +1,64 @@
 module.exports = function(grunt) {
-	grunt.initConfig({
-		pkg: grunt.file.readJSON('package.json'),
-
-		imagemin: {
-			target: {
-				files: [{
-					expand: true,
-					cwd: 'images/',
-					src: ['**/*.{png,jpg,gif,jpeg,svg}'],
-					dest: 'min_images/'
-				}]
+  grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
+    imagemin: {
+      target: {
+        files: [{
+          expand: true,
+          cwd: 'img/',
+          src: ['**/*.{png,jpg,gif,jpeg,svg}'],
+          dest: 'img/'
+        }]
+      }
+    },
+    watch: {
+      imagemin: {
+        files: 'img/*.{png,jpg,gif}',
+        tasks: ['imagemin']
+      },
+      uglify: {
+        files: ['js/*.js',"js/min/!*.min.js"],
+        tasks: ['newer:uglify:target']
+      },
+      shell: {
+        files: '_data/utilities.csv',
+        tasks: 'pagemaster'
+      }
+    },
+    uglify: {
+      options: {
+        mangle: false
+      },
+      target: {
+        files: [{
+          expand: true,
+          cwd: "js/",
+          src: ["*.js", "!*.min.js"],
+          dest: "js/min/",
+          ext: ".min.js"
+        }]
+      }
+    },
+    shell: {
+      installBundle: {
+        command: 'bundle'
+      },
+      jekyllServe: {
+        command: 'bundle exec jekyll serve --livereload '
+      }
+    },
+		concurrent: {
+			target: ['shell:jekyllServe','watch'],
+			options: {
+				logConcurrentOutput: true
 			}
-		},
-		watch: {
-			imagemin: {
-				files: 'images/*.{png,jpg,gif}',
-				tasks: ['imagemin']
-			},
-
 		}
-	});
-	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-contrib-imagemin');
-	grunt.loadNpmTasks('grunt-newer');
-	grunt.registerTask('default',['newer:imagemin:target', 'watch']);
+  });
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
+  grunt.loadNpmTasks('grunt-newer');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-concurrent');
+  grunt.loadNpmTasks('grunt-shell');
+  grunt.registerTask('default', ['shell:installBundle','concurrent:target']);
 };

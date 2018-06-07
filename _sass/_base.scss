@@ -1,4 +1,3 @@
-@import "mixins";
 html,
 body {
 	margin:0;
@@ -31,7 +30,7 @@ a {
 	font-weight: bold;
 	text-decoration: none;
 	color: $body_link;
-	@include transition;
+	@include transition(all);
 	&:hover, &:active, &:focus {
 		color: $body_link_hover;
 	}
@@ -48,7 +47,7 @@ a {
 		background-image: none;
 		background-color: $hover_button_bg;
 		color: $hover_button_txt;
-		@include transition;
+		@include transition(all);
 	}
 }
 #wrapper {
@@ -62,42 +61,6 @@ a {
 
 	h1, h2, h3, h4, h5 {
 		color: $header_txt;
-	}
-}
-//PureCSS Grids
-/* fix for IE and Firefox responsiveness */
-.pure-g {
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: flex;
-	-webkit-flex-flow: row wrap;
-	-ms-flex-flow: row wrap;
-	flex-flow: row wrap;
-}
-.pure-g [class *= "pure-u"] {
-	font-family: $body-font;
-}
-.pure-g {
-	font-family: $body-font;
-}
-//BSD Form
-
-.signup-form {
-	padding: 1em;
-	width: 100%;
-	background: $form_bg;
-		color: $form_txt;
-	.pure-button {
-		text-transform: uppercase;
-		font-weight: bold;
-		width: 100%;
-		background: $form_btn_bg;
-		color:  $form_btn_txt;
-		&:hover {
-			@include transition;
-			background: $form_btn_txt;
-			color: $form_btn_bg;
-		}
 	}
 }
 //Social Share
@@ -119,11 +82,11 @@ $facebook_brand: #3B5998;
 		.tweet-link {
 			.fa-twitter {
 				color: $white;
-				@include transition;
+				@include transition(all);
 			}
 	        .fa-circle {
 	            color: $twitter_brand;
-				@include transition;
+				@include transition(all);
 	        }
 			&:hover {
 				cursor: pointer;
@@ -138,11 +101,11 @@ $facebook_brand: #3B5998;
 	    .fb-link {
 			.fa-facebook {
 				color: $white;
-				@include transition;
+				@include transition(all);
 			}
 	        .fa-circle {
 	            color: $facebook_brand;
-				@include transition;
+				@include transition(all);
 	        }
 			&:hover {
 				cursor: pointer;

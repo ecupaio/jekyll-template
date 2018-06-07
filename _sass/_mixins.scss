@@ -1,11 +1,5 @@
 //Default Transition
-@mixin transition {
-	-webkit-transition: all $transition_duration ease;
-	-moz-transition: all $transition_duration ease;
-	-o-transition: all $transition_duration ease;
-	transition: all $transition_duration ease;
-}
-@mixin custom_transition($prop...) {
+@mixin transition($prop...) {
 	-webkit-transition-property: $prop;
 	-moz-transition-property: $prop;
 	-o-transition-property: $prop;
@@ -36,7 +30,7 @@
 	    width: 100%;
 	    transform: scaleX(0);
 	    background-color: $body_link;
-	    @include custom_transition(all 0.5s ease);
+	    @include transition(all);
 	    -webkit-transform-origin: center;
 	    -ms-transform-origin: center;
 	    transform-origin: center;
@@ -83,7 +77,7 @@
 	  text-decoration: none;
 	}
   i:hover {
-  	@include transition;
+  	@include transition(all);
     background-color: $button_txt;
     color: $button_bg;
   }

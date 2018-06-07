@@ -49,3 +49,8 @@ $transition_duration: .5s;
 @include bodyPadding($body-padding);
 @include footerPadding($footer-padding);
 //Start Theme Customizations below:
+h1 {
+  &:hover {
+    @include transition(color, z-index);
+  }
+}

@@ -1,62 +1,11 @@
+---
+layout: compress
+---
 <!DOCTYPE html>
 <html>
 
 <head>
-    {% if site.ga %}
-    <!-- Global Site Tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70251-65"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments)};
-      gtag('js', new Date());
-
-      gtag('config', '{{ site.ga }}');
-    </script>
-    {% endif %}
-    {% if site.gtm %}
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','{{ site.gtm }}');</script>
-    <!-- End Google Tag Manager -->
-    {% endif %}
-    <meta charset="utf-8">
-    {% if page.url == "/404.html" %}
-    <meta http-equiv="refresh" content="3; url=/">
-    {% endif %}
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Title and Meta Text -->
-    <title>{{ site.title }}</title>
-    <meta content="{{ site.description }}" name="description">
-    <!-- Facebook Meta -->
-    <meta property="og:url" content="{{ site.url }}">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="{{ site.title }}">
-    <meta property="og:description" content="{{ site.description }}">
-    <meta property="og:image" content="{{ site.meta_img }}">
-    <!-- Twitter Meta -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="{{ site.twitter }}">
-    <meta name="twitter:creator" content="{{ site.twitter }}">
-    <meta name="twitter:title" content="{{ site.title }}">
-    <meta name="twitter:description" content="{{ site.description }}">
-    <meta name="twitter:image" content="{{ site.meta_img }}">
-    <!-- Pure CSS-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
-    <!-- CSS -->
-    {% include base.html %}
-    <link href="{{ base }}/css/style.css" rel="stylesheet" type="text/css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Favicon -->
-    <link rel="icon" href="{{ site.favicon }}">
-    <!-- Jquery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-    <!-- Twitter Popup -->
-    <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+    {% include head.html %}
 </head>
 
 <body>
@@ -77,5 +26,5 @@
     <div id="footer">
     </div>
     <!-- Scripts -->
-    <script src="{{ base }}/site_functions.js"></script>
+    <script src="/js/site_functions.js"></script>
 </body>
