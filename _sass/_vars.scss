@@ -1,0 +1,25 @@
+//Color Variables
+$charcoal: #333;
+$white: #fff;
+$blue: #3e73cb;
+//Theme colors
+$text_color: $charcoal;
+$primary_color: $blue;
+$secondary_color: $white;
+//Mobile Breakpoints
+$size-x-large: 1280px;
+$size-large: 1024px;
+$size-medium: 768px;
+$size-small: 568px;
+//Padding for Sections and Grids
+$grid-gutters: 0.5em 1em;
+$header-padding: 1em;
+$body-padding: 1em 3em;
+$body-padding-mobile: 1em;
+$footer-padding: 3em 1em;
+$transition_duration: .5s;
+//Mixins
+@include gridGutters($grid-gutters);
+@include headerPadding($header-padding);
+@include bodyPadding($body-padding);
+@include footerPadding($footer-padding);

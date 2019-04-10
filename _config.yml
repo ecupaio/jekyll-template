@@ -1,11 +1,10 @@
 ---
-title: Single Page Template
+title: Jekyll Template
 description: site description
 meta_img:
 twitter:
 favicon:
 url:
-ga:
 gtm:
 timezone: America/New York
 future: true
@@ -21,7 +20,10 @@ sass:
   sass_dir: _sass
   style: compressed
 plugins:
-  - jekyll-sitemap  
+  - jekyll-sitemap
+collections:
+  terms:
+    output: true
 defaults:
 - scope:
     path: ''

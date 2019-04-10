@@ -13,119 +13,27 @@ body {
 //Default Fonts
 h1, h2, h3, h4, h5 {
 	font-family: $header-font;
-	color: $heading;
 }
 body {
 	font-family: $body-font;
 	font-size: 14pt;
-	color: $body_txt;
+	color: $text_color;
 }
-b, strong {
-	font-family: $header-font;
-	font-weight: bold;
-}
-
 //Links
 a {
 	font-weight: bold;
 	text-decoration: none;
-	color: $body_link;
-	@include transition(all);
+	color: $primary_color;
+	@include transition(color);
 	&:hover, &:active, &:focus {
-		color: $body_link_hover;
-	}
-}
-//PureCSS Buttons
-.pure-button {
-	border-radius: 0;
-	background-color: $button_bg;
-	border: 3px solid $button_bg;
-	color: $button_txt;
-	white-space: normal;
-	font-family: $header_font;
-	&:hover, &:focus {
-		background-image: none;
-		background-color: $hover_button_bg;
-		color: $hover_button_txt;
-		@include transition(all);
+		color: darken($primary_color,15%);
 	}
 }
 #wrapper {
 	min-height: 100%;
 	position:relative;
 }
-//Header
-#header {
-	background: $header_bg;
-	color: $header_txt;
 
-	h1, h2, h3, h4, h5 {
-		color: $header_txt;
-	}
-}
-//Social Share
-$twitter_brand: #1da1f2;
-$facebook_brand: #3B5998;
-.social-share {
-	display: block;
-	margin-top: 1em;
-	&.links {
-		i {
-			font-size: 1.5em;
-		}
-		a:nth-child(2) {
-			margin-left: 1em;
-		}
-	}
-	&.buttons {
-		color: $white;
-		.tweet-link {
-			.fa-twitter {
-				color: $white;
-				@include transition(all);
-			}
-	        .fa-circle {
-	            color: $twitter_brand;
-				@include transition(all);
-	        }
-			&:hover {
-				cursor: pointer;
-				.fa-twitter {
-	            	color: $twitter_brand;
-				}
-	            .fa-circle {
-	                color: $white;
-	            }
-			}
-	    }
-	    .fb-link {
-			.fa-facebook {
-				color: $white;
-				@include transition(all);
-			}
-	        .fa-circle {
-	            color: $facebook_brand;
-				@include transition(all);
-	        }
-			&:hover {
-				cursor: pointer;
-				.fa-facebook {
-					color: $facebook_brand;
-				}
-	            .fa-circle {
-	                color: $white;
-	            }
-			}
-	    }
-	}
-}
-//Footer
-#footer {
-	background-color: $footer_bg;
-	color: $footer_txt;
-	text-align: center;
-	clear: both;
-}
 //Form Inputs
 input,textarea {
 	&:not([type=submit]):not([type=file]):not([type=radio]):not([type=checkbox]) {

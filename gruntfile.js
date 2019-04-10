@@ -19,10 +19,6 @@ module.exports = function(grunt) {
       uglify: {
         files: ['js/*.js',"js/min/!*.min.js"],
         tasks: ['newer:uglify:target']
-      },
-      shell: {
-        files: '_data/utilities.csv',
-        tasks: 'pagemaster'
       }
     },
     uglify: {
@@ -60,5 +56,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-concurrent');
   grunt.loadNpmTasks('grunt-shell');
-  grunt.registerTask('default', ['shell:installBundle','concurrent:target']);
+  grunt.registerTask('default', ['uglify','shell:installBundle','concurrent:target']);
 };
