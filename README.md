@@ -21,7 +21,7 @@ Bundle is a tool for managing ruby dependencies. It is installed using a ruby pa
 
 Clone then copy the template into your repo to get started:
 
-`cp -R PATH/TO/frontend-templates/jekyll_spt/ PATH/TO/YOUR-REPO/`
+`cp -R PATH/TO/jekyll-template/ PATH/TO/YOUR-REPO/`
 
 If you are developing a site that uses the jekyll template, just follow the directions below:
 
@@ -120,7 +120,7 @@ The base styles can be found in `_sass/_base.scss`.
 #### PureCSS
 [PureCSS](https://purecss.io/) is the default library for this template. Some helpful tools from PureCSS are [buttons](https://purecss.io/buttons/) and [grids](https://purecss.io/grids/). Gutters have been added between the grid columns for layout purposes and can be adjusted through the `$grid-gutters` variable on `_sass/_custom.scss`.
 
-Responsive grids are configured with the breakpoints mixin so do not worry about 
+Responsive grids are configured with the breakpoints mixin so do not worry about
 
 #### Mixins
 
