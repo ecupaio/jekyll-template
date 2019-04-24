@@ -1,5 +1,5 @@
 {
-  "name": "single_page_template",
+  "name": "jekyll_tempalte",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,13 +10,14 @@
   "license": "ISC",
   "devDependencies": {
     "grunt": "^1.0.3",
+    "grunt-concurrent": "^2.3.1",
     "grunt-contrib-imagemin": "^1.0.0",
+    "grunt-contrib-uglify": "^4.0.1",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-newer": "^1.1.2",
     "grunt-shell": "^2.1.0",
     "imagemin-mozjpeg": "^5.1.0",
     "imagemin-pngquant": "^4.2.2"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
