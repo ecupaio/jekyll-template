@@ -28,7 +28,7 @@ defaults:
 - scope:
     path: ''
   values:
-    layout: index
+    layout: default
 # collections:
 #   collection-name:
 #     output: true

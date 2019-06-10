@@ -20,6 +20,3 @@ $footer-padding: 3em 1em;
 $transition_duration: .5s;
 //Mixins
 @include gridGutters($grid-gutters);
-@include headerPadding($header-padding);
-@include bodyPadding($body-padding);
-@include footerPadding($footer-padding);

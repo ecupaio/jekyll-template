@@ -16,7 +16,7 @@ h1, h2, h3, h4, h5 {
 }
 body {
 	font-family: $body-font;
-	font-size: 14pt;
+	font-size: 16px;
 	color: $text_color;
 }
 //Links
@@ -29,16 +29,11 @@ a {
 		color: darken($primary_color,15%);
 	}
 }
-#wrapper {
-	min-height: 100%;
-	position:relative;
-}
+
 
 //Form Inputs
 input,textarea {
 	&:not([type=submit]):not([type=file]):not([type=radio]):not([type=checkbox]) {
-		width: 100%;
-		padding: 0.5em;
 		-webkit-appearance: none;
 		-moz-appearance: none;
 		border: 0;
@@ -46,7 +41,6 @@ input,textarea {
 	&:active, &:focus {
 		outline: 0;
 	}
-
 	&.submit {
 		white-space: normal;
 	}
