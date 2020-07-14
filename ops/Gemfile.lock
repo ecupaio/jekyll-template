@@ -1,11 +1,12 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (5.2.3)
+    activesupport (6.0.3.2)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+      zeitwerk (~> 2.2, >= 2.2.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     aws-eventstream (1.0.3)
@@ -30,7 +31,7 @@ GEM
       rainbow (~> 2.1)
       semantic (~> 1.4)
       table_print (~> 1.5)
-    concurrent-ruby (1.1.5)
+    concurrent-ruby (1.1.6)
     cri (2.15.9)
     docile (1.2.0)
     faraday (0.17.0)
@@ -39,10 +40,10 @@ GEM
     git_clone_url (2.0.0)
       uri-ssh_git (>= 2.0)
     highline (1.7.10)
-    i18n (1.6.0)
+    i18n (1.8.3)
       concurrent-ruby (~> 1.0)
     jmespath (1.4.0)
-    minitest (5.11.3)
+    minitest (5.14.1)
     multipart-post (2.1.1)
     octokit (4.14.0)
       sawyer (~> 0.8.0, >= 0.5.3)
@@ -64,9 +65,10 @@ GEM
     table_print (1.5.6)
     thor (0.20.3)
     thread_safe (0.3.6)
-    tzinfo (1.2.5)
+    tzinfo (1.2.7)
       thread_safe (~> 0.1)
     uri-ssh_git (2.0.0)
+    zeitwerk (2.3.1)
 
 PLATFORMS
   ruby
