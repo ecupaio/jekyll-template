@@ -1,9 +1,0 @@
-source 'https://rubygems.org'
-
-gem 'stax', '>= 0.0.28'
-
-## this is a hack until this fixed: https://github.com/seanedwards/cfer/issues/50
-gem 'docile', '~> 1.2.0'
-
-## for ruby template wrappers
-gem 'cfer', '>= 0.6.0'
