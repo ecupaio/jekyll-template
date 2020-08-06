@@ -29,6 +29,38 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="twitter:title" content="{{ site.title }}">
 <meta name="twitter:description" content="{{ site.description }}">
 <meta name="twitter:image" content="{{ site.meta_img }}">
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "{{ site.schema.type }}",
+    "name": "{{ site.schema.name }}",
+    "image": "{{site.url}}{{ site.schema.image }}",
+    "logo": "{{ site.url }}{{site.schema.logo }}",
+    "url": "{{ site.url }}",
+    "telephone": "{{ site.schema.phone }}",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "{{ site.schema.location.address }}",
+      "addressLocality": "{{ site.schema.location.city }}",
+      "addressRegion": "{{ site.schema.location.state }}",
+      "postalCode": "{{ site.schema.location.zip }}",
+      "addressCountry": "USA"
+    },
+    {% if site.schema.hours.days !== '' %}
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+      {{ site.schema.hours.days | split: "," | join: "," }}
+      ],
+      "opens": "{{ site.schema.hours.open }}",
+      "closes": "{{ site.schema.hours.close }}"
+    },
+    {% endif %}
+    "sameAs": 
+    {{ site.schema.social | split: "," | join: "," }}
+    
+  }
+  </script>
 <!-- Pure CSS-->
 <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/base-min.css">
 <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-min.css">

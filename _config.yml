@@ -6,6 +6,23 @@ twitter:
 favicon:
 url:
 gtm:
+schema:
+  name: 
+  type: 
+  image: 
+  logo:
+  phone: 
+  email: 
+  social:
+  location: 
+    address: 
+    city: 
+    state: 
+    zip: 
+  hours:
+    days:
+    opens:
+    closes:  
 timezone: America/New York
 future: true
 markdown: kramdown
