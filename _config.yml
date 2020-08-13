@@ -41,6 +41,8 @@ plugins:
 collections:
   terms:
     output: true
+  pages: 
+    output: true  
 defaults:
 - scope:
     path: ''
