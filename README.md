@@ -19,11 +19,9 @@ Bundle is a tool for managing ruby dependencies. It is installed using a ruby pa
 
 ## Development
 
-Clone then copy the template into your repo to get started:
+Select the Use this Template button at the top of the page, label your new repo, then select 
 
-`cp -R PATH/TO/jekyll-template/ PATH/TO/YOUR-REPO/`
-
-If you are developing a site that uses the jekyll template, just follow the directions below:
+Pull to local then locate your repo and run:
 
 `cd <your-repo>`
 
@@ -87,14 +85,6 @@ Jekyll allows you to inject HTML into your content with premade html snippets. T
 
 *base.html*  
 Base is a helpful include from [Rico Sta. Cruz](https://ricostacruz.com/til/relative-paths-in-jekyll) that helps create relative paths that work in github pages as well as local development. It's used for the internal JS and CSS files sources for the index.html. use `{{ base }}` as a prefix to get to the root. Ex: `{{ base }}/css/style.css`
-
-*form.html*  
-
-`{% include form.html form-url="//your-form-url.com" %}`
-
-*social_share.html*  
-Social share is just a pair of pre-styled Facebook and Twitter icon links that you can drop anywhere in your project. The social share has params for you to customize the tweet text and url, plus two layouts. Below is an example include:
-`{% include social_share.html layout="buttons" tweet="Tweet text" url="https://example.com" %}`
 
 `layout`:
 * `links` (default if not specified)
