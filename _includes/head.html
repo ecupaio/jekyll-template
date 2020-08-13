@@ -68,6 +68,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- CSS -->
 {% include base.html %}
 <link href="{{ base }}/css/style.css" rel="stylesheet" type="text/css">
+<!-- Page CSS --> 
+{% if layout.css %}
+  {% assign page-css = layout.css %}
+{% endif %}
+{% if page.css %}
+  {% assign page-css = page.css %}
+{% endif %}
+{% if page-css %}
+<link rel="stylesheet" href="{{ base }}/css/{{ page-css }}.css">
+{% endif %}
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- Favicon -->
