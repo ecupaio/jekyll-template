@@ -36,16 +36,12 @@ module.exports = function(grunt) {
       }
     },
     shell: {
-      installBundle: {
-        command: 'bundle install'
-      },
       jekyllServe: {
         command: 'bundle exec jekyll serve --livereload '
       }
     },
 		concurrent: {
-      //target: ['shell:jekyllServe','watch'],
-      target: ['watch'],
+      target: ['shell:jekyllServe','watch'],
 			options: {
 				logConcurrentOutput: true
 			}

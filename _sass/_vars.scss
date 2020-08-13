@@ -16,3 +16,6 @@ $grid-gutters: 0.5rem 1rem;
 $transition_duration: .5s;
 //Mixins
 @include gridGutters($grid-gutters);
+//Fonts
+$header-font: 'Helvetica', sans-serif;
+$body-font: 'Helvetica', sans-serif;

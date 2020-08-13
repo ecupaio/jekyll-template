@@ -46,7 +46,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       "postalCode": "{{ site.schema.location.zip }}",
       "addressCountry": "USA"
     },
-    {% if site.schema.hours.days !== '' %}
+    {% if site.schema.hours.days != '' %}
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": [

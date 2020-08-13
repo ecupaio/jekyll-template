@@ -1,6 +1,6 @@
 ---
-title: Jekyll Template
-description: site description
+title: 
+description: 
 meta_img:
 twitter:
 favicon:
@@ -38,16 +38,18 @@ sass:
   style: compressed
 plugins:
   - jekyll-sitemap
+  - jekyll-autoprefixer
 collections:
   terms:
     output: true
   pages: 
     output: true  
+
+autoprefixer:
+  browsers: 
+    - last 2 versions    
 defaults:
 - scope:
     path: ''
   values:
     layout: default
-# collections:
-#   collection-name:
-#     output: true
