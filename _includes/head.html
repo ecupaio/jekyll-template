@@ -67,7 +67,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
 <!-- CSS -->
 {% include base.html %}
-<link href="{{ base }}/css/style.css" rel="stylesheet" type="text/css">
+<link href="{{'/css/style.min.css' | relative_url }}" rel="stylesheet" type="text/css">
 <!-- Page CSS --> 
 {% if layout.css %}
   {% assign page-css = layout.css %}
@@ -76,7 +76,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   {% assign page-css = page.css %}
 {% endif %}
 {% if page-css %}
-<link rel="stylesheet" href="{{ base }}/css/{{ page-css }}.css">
+{%- capture css-path -%}
+  /css/{{ page-css }}.min.css
+{%- endcapture -%}
+<link rel="stylesheet" href="{{ css-path | trim | relative_url }}">
 {% endif %}
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />

@@ -52,17 +52,3 @@ $default-shadow: 0px 3px 5px rgba(100, 100, 100, 0.5);
     @content;
   }
 }
-// Add Gutters - include in any section you want to have gutters, such as the form
-@mixin gridGutters($grid-gutters) {
-	//Gutter Padding Method
-	.pure-g  div[class*="pure-u-"] {
-		padding: $grid-gutters;
-	}
-}
-//Mixin if you want equal-height columns
-@mixin flexGrid($gutter-border,$grid-bg) {
-	padding: 0;
-	border-width: $gutter-border;
-	border-color: $grid-bg;
-	border-style: solid;
-}

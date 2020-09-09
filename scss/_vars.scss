@@ -11,11 +11,8 @@ $size-x-large: 1280px;
 $size-large: 1024px;
 $size-medium: 768px;
 $size-small: 568px;
-//Padding for Sections and Grids
-$grid-gutters: 0.5rem 1rem;
+//Transition
 $transition_duration: .5s;
-//Mixins
-@include gridGutters($grid-gutters);
 //Fonts
 $header-font: 'Helvetica', sans-serif;
 $body-font: 'Helvetica', sans-serif;
