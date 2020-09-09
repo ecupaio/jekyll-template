@@ -19,6 +19,10 @@ module.exports = function(grunt) {
       uglify: {
         files: ['js/*.js',"js/min/!*.min.js"],
         tasks: ['newer:uglify:target']
+      },
+      css: {
+        files: ['scss/*.scss'],
+        tasks: ['sass', 'postcss', 'copy:mincss']
       }
     },
     uglify: {
@@ -35,6 +39,45 @@ module.exports = function(grunt) {
         }]
       }
     },
+    sass: {
+      options: {
+        compress: false
+      },
+      scss: {
+        files: [{
+          expand: true,
+          cwd: 'scss/',
+          src: ['*.scss','!_*.scss'],
+          dest: 'css/',
+          ext: '.min.css'
+        }]
+      }    
+    },
+    postcss: {
+      options: {
+        processors: [
+          require('autoprefixer')({overrideBrowserslist: ['last 2 versions']}),
+          require('csswring')()
+        ]
+      },
+      mincss: {
+        files: [{
+          expand: true,
+          cwd: 'css/',
+          src: ['*.min.css'],
+          dest: 'css/'
+        }]
+      }
+    },
+    copy: {
+      mincss: [{
+        expand: true,
+        cwd: 'css/',
+        src: ['*.min.css'],
+        dest: '_site/css/'
+      }]
+    },
+    
     shell: {
       jekyllServe: {
         command: 'bundle exec jekyll serve --livereload '
@@ -47,11 +90,14 @@ module.exports = function(grunt) {
 			}
 		}
   });
+  grunt.loadNpmTasks('grunt-contrib-sass'); 
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-newer');
   grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-concurrent');
   grunt.loadNpmTasks('grunt-shell');
-  grunt.registerTask('default', ['uglify','concurrent:target']);
+  grunt.registerTask('default', ['uglify','sass','concurrent:target']);
 };
