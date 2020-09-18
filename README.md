@@ -17,6 +17,10 @@ Bundle is a tool for managing ruby dependencies. It is installed using a ruby pa
 
 `gem install bundle`
 
+### NodeJS and NPM
+NodeJS and NPM are necesarry for running the grunt tasks. Follow [this guide](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) to get them installed. 
+
+
 ## Development
 
 Select the Use this Template button at the top of the page, label your new repo, then select 
@@ -30,6 +34,8 @@ Now install Jekyll using Bundle:
 `bundle`
 
 You should messages about packages being installed, ending with something like: "Bundle complete! 6 Gemfile dependencies, 33 gems now installed."
+
+If you have NodeJS and NPM installed, run `npm i` to get all dependencies installed. 
 
 Now you should be able to start your local jekyll server:
 
