@@ -13,8 +13,8 @@ module.exports = function(grunt) {
     },
     watch: {
       imagemin: {
-        files: 'img/*.{png,jpg,gif}',
-        tasks: ['imagemin']
+        files: 'img/*.{png,jpg,gif,jpeg,svg}',
+        tasks: ['newer:imagemin:target']
       },
       uglify: {
         files: ['js/*.js',"js/min/!*.min.js"],

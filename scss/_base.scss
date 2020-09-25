@@ -37,16 +37,19 @@ img {
 }
 
 //Form Inputs
-input,textarea {
-	&:not([type=submit]):not([type=file]):not([type=radio]):not([type=checkbox]) {
-		-webkit-appearance: none;
-		-moz-appearance: none;
-		border: 0;
-	}
+input:[type="text"],input:[type="email"],input:[type="number"],textarea {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	border: 0;
 	&:active, &:focus {
 		outline: 0;
 	}
 	&.submit {
 		white-space: normal;
+	}
+}
+button {
+	&:active, &:focus {
+		outline: 0;
 	}
 }

@@ -35,7 +35,9 @@ Now install Jekyll using Bundle:
 
 You should messages about packages being installed, ending with something like: "Bundle complete! 6 Gemfile dependencies, 33 gems now installed."
 
-If you have NodeJS and NPM installed, run `npm i` to get all dependencies installed. 
+If you have NodeJS and NPM installed, install all dependencies: 
+
+`npm i`
 
 Now you should be able to start your local jekyll server:
 
@@ -61,9 +63,6 @@ The image card for social share. This will need to be an absolute path to the pr
 `url`
 The domain of your site.
 
-`ga`  
-The Google Analytics ID for your site
-
 `gtm`
 The Google Tag Manager ID for your site
 
@@ -87,68 +86,86 @@ Below is a list of what each variable displays and how to edit them:
 `index` is the default layout for all pages created through jekyll.
 
 #### Includes
-Jekyll allows you to inject HTML into your content with premade html snippets. There are several includes that come with this template:
-
-*base.html*  
-Base is a helpful include from [Rico Sta. Cruz](https://ricostacruz.com/til/relative-paths-in-jekyll) that helps create relative paths that work in github pages as well as local development. It's used for the internal JS and CSS files sources for the index.html. use `{{ base }}` as a prefix to get to the root. Ex: `{{ base }}/css/style.css`
-
-`layout`:
-* `links` (default if not specified)
-* `buttons`  
-
-`tweet`: string
-
-`url`: url (http://example.com)
+Jekyll allows you to inject HTML into your content with pre-made html snippets. There are several includes that come with this template:
 
 *ga-event.html*  
 GA Event is a include to simply enter Google Analytics click events. Below is an example include:
-`{% include ga-event.html category='Social Share' label='Twitter' %}`
+`{% include ga-event.html category='Social Share' action='Click' label='Twitter' %}`
 
 `category`: string
+`click`: string
 `label`: string
 
-### SASS
+*head.html*
+The head element that is on every page. You can add additional scripts and fonts here. Most of the config variables feed into here.
 
-Open `_sass/_custom.scss` and start adding your custom styles. At the top of the sheet there are several preset styles, mainly colors, for you to adjust. The brand colors are displayed at the top so you know what options you have. There are also preset breakpoints and padding for the three sections: header, main, and footer.
+### SCSS
+
+All files in `scss` get prefixed for broswer compatibility and minified into the `css` directory. 
 
 The base styles can be found in `_sass/_base.scss`.
 
-#### PureCSS
-[PureCSS](https://purecss.io/) is the default library for this template. Some helpful tools from PureCSS are [buttons](https://purecss.io/buttons/) and [grids](https://purecss.io/grids/). Gutters have been added between the grid columns for layout purposes and can be adjusted through the `$grid-gutters` variable on `_sass/_custom.scss`.
+Settings for colors, fonts, transition duration, and more can be found in `_vars.scss`.
 
-Responsive grids are configured with the breakpoints mixin so do not worry about
+Locally loaded fonts can be imported via the `_fonts.scss` sheet. 
+
+All underscored scss sheets are includes in style.scss
+
+#### PureCSS
+[PureCSS](https://purecss.io/) is the default library for this template. Some helpful tools from PureCSS are [buttons](https://purecss.io/buttons/) and [grids](https://purecss.io/grids/). Styles for the grids can be found in `scss/_pure-grid.scss`.
+
+Responsive grids are configured with the breakpoints set in `_vars.scss`. 
 
 #### Mixins
 
 **Breakpoints**  
 Mixins for breakpoints can be used for quick mobile styling:
+`@include bp-x-large`
 `@include bp-large`
 `@include bp-medium`
 `@include bp-small`
 
-Each of the breakpoints max-widths can be adjusted through the `$size-` variables on `custom.scss`.
-
-**Flexbox**  
-Use `@include flexbox` for instant flexbox with all the browser prefixes.
+Each of the breakpoints max-widths can be adjusted through the `$size-` variables on `_vars.scss`.
 
 **Box Shadow**  
-Use `@include box-shadow`for an elegant shaddow on divs and the like.
+Use `@include box-shadow`for a preset box shadow. You can also customize it: `@include box-shadow(0px 5px 10px #333)`
 
 **Headings**  
 Use `@include headings` to apply styles for heading tags (eg `<h1>`).
 
 **Transitions**  
-Use `@include transition(all)` to add a `transition: all $transition_duration ease` property with browser prefixes. The `$transition_duration` variable can be modified at the top of `custom.scss`
+Use `@include transition(all)` to add a `transition: all $transition_duration ease` property with browser prefixes. The `$transition_duration` variable can be modified at the top of `_vars_.scss`
 
 For other transitions properties, just add them as comma separated parameters in the include: `@include transition(opacity,color)`.
 
-**Transforms**  
-Use `@include transform(VALUES)` to apply a transform with browser prefixes. For example, use `@include transform(translateX(100%))` to apply a translateX to your property.
+#### Loading CSS per page or layout
+
+To reduce CSS load times you can add single CSS sheets per page or layout. Add `css:` front matter with the sheet name (no path or extension) to your page or layout to load it. For example, `css: home` would load the CSS for `scss/home.scss` to the home page. For each sheet you add, you need to add the following to the top of the custom sheet: 
+```
+@import "vars.scss";
+@import "mixins.scss";
+```
+After that, you can use the mixins and vars from the respective sheets as you please. 
 
 ### JS
 
+jQuery is loaded before the body tag for all pages using the default template. 
+
 Add javascript files to the `js` directory and grunt will output uglified files to the `js/min` directory.
+
+When you want to add js to a specific page or layout just add `scripts:` to the front matter of the page or layout and add each filename, not path or extension, as a list item beneath. Example:
+```
+scripts:
+- site_functions
+```
+This will load `<script src="/min/js/site_functions.min.js"></script>` before the body tag ends and below the jQuery script.
 
 ### Images
 
-Add images to the `images` directory and grunt will output the minified images to the `min_images` directory so you can have a backup of original images.
+Add images to the `img` directory and grunt will output the overwrite images to the same directory.
+
+### Layouts
+
+`default.html` will add the basic HTML structure and the `head.html` include necessary for all pages and layouts. Add `layout: default` to either your page or custom layout. 
+
+`compress.html` is the HTML compressor. Jekyll doesn't have a HTML compressor so this is applied to the `default.html` layout so it will compress all HTML. It doesn't need to be added to any pages or custom layouts since it's applied to default and everything will inherit it. 

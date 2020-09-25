@@ -1,1 +1,1 @@
-onclick="gtag('event', 'Click', {'event_category': '{{ include.category }}','event_label': '{{ include.label }}'});"
+onclick="dataLayer.push({'event': 'gaEvent','eventCategory':'{{ include.category}}','eventAction': '{{ include.action}}','eventLabel': '{{ include.label}}'});"
