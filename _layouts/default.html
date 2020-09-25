@@ -1,13 +1,13 @@
 ---
 layout: compress
+scripts: 
+- site_functions
 ---
 <!DOCTYPE html>
 <html>
-
 <head>
     {% include head.html %}
 </head>
-
 <body>
     {% if site.gtm %}
     <!-- Google Tag Manager (noscript) -->
@@ -17,7 +17,22 @@ layout: compress
     {% endif %}
     {{ content }}
     <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-    <script src="/js/site_functions.js"></script>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Layout -->
+    {% if layout.scripts %}
+    {% for script in layout.scripts %}
+    {% capture script-path %}/js/min/{{ script }}.min.js{% endcapture %}
+    <script src="{{ script-path | relative_url }}"></script>
+    {% endfor %}
+    {% endif %}
+    <!-- Page -->
+    {% if page.scripts %}
+    {% for script in page.scripts %}
+    {% capture script-path %}/js/min/{{ script }}.min.js{% endcapture %}
+    <script src="{{ script-path | relative_url }}"></script>
+    {% endfor %}
+    {% endif %}
+    <!-- End Scripts -->
 </body>
 </html>
