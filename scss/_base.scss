@@ -37,7 +37,7 @@ img {
 }
 
 //Form Inputs
-input:[type="text"],input:[type="email"],input:[type="number"],textarea {
+input[type="text"],input[type="email"],input[type="number"],textarea {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	border: 0;
