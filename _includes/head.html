@@ -67,16 +67,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
 <!-- Base CSS -->
 <link href="{{'/css/style.min.css' | relative_url }}" rel="stylesheet" type="text/css">
-<!-- Page CSS --> 
+<!-- Layout CSS -->
 {% if layout.css %}
-  {% assign page-css = layout.css %}
-{% endif %}
-{% if page.css %}
-  {% assign page-css = page.css %}
-{% endif %}
-{% if page-css %}
 {%- capture css-path -%}
-  /css/{{ page-css }}.min.css
+  /css/{{ layout.css }}.min.css
+{%- endcapture -%}
+<link rel="stylesheet" href="{{ css-path | trim | relative_url }}">
+{% endif %}
+<!-- Page CSS --> 
+{% if page.css %}
+{%- capture css-path -%}
+  /css/{{ page.css }}.min.css
 {%- endcapture -%}
 <link rel="stylesheet" href="{{ css-path | trim | relative_url }}">
 {% endif %}
