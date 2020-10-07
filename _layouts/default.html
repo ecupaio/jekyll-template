@@ -1,7 +1,5 @@
 ---
 layout: compress
-scripts: 
-- site_functions
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -19,6 +17,8 @@ scripts:
     <!-- Scripts -->
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Sitewide scripts  -->
+	<script src="{{ '/js/min/site_functions.min.js' | relative_url }}"></script>
     <!-- Layout -->
     {% if layout.scripts %}
     {% for script in layout.scripts %}
