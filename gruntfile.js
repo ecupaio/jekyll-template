@@ -22,7 +22,7 @@ module.exports = function(grunt) {
       },
       css: {
         files: ['scss/*.scss'],
-        tasks: ['sass', 'postcss', 'copy:mincss']
+        tasks: ['sass', 'postcss']
       }
     },
     uglify: {
@@ -69,15 +69,6 @@ module.exports = function(grunt) {
         }]
       }
     },
-    copy: {
-      mincss: [{
-        expand: true,
-        cwd: 'css/',
-        src: ['*.min.css'],
-        dest: '_site/css/'
-      }]
-    },
-    
     shell: {
       jekyllServe: {
         command: 'bundle exec jekyll serve --livereload '
@@ -99,5 +90,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-concurrent');
   grunt.loadNpmTasks('grunt-shell');
-  grunt.registerTask('default', ['uglify','sass','concurrent:target']);
+  grunt.registerTask('default', ['uglify','sass', 'postcss','concurrent:target']);
 };

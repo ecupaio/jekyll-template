@@ -66,18 +66,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-min.css">
 <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
 <!-- Base CSS -->
-<link href="{{'/css/style.min.css' | relative_url }}" rel="stylesheet" type="text/css">
+{%- capture base-css -%}
+/css/style.min.css?{{site.time | date: '%s'}}
+{%- endcapture -%}
+<link href="{{ base-css | relative_url }}" rel="stylesheet" type="text/css">
 <!-- Layout CSS -->
 {% if layout.css %}
 {%- capture css-path -%}
-  /css/{{ layout.css }}.min.css
+  /css/{{ layout.css }}.min.css?{{site.time | date: '%s'}}
 {%- endcapture -%}
 <link rel="stylesheet" href="{{ css-path | trim | relative_url }}">
 {% endif %}
 <!-- Page CSS --> 
 {% if page.css %}
 {%- capture css-path -%}
-  /css/{{ page.css }}.min.css
+  /css/{{ page.css }}.min.css?{{site.time | date: '%s'}}
 {%- endcapture -%}
 <link rel="stylesheet" href="{{ css-path | trim | relative_url }}">
 {% endif %}
