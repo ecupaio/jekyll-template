@@ -45,6 +45,6 @@ collections:
     output: true  
 defaults:
 - scope:
-    path: ''
+    type: 'pages'
   values:
     layout: default

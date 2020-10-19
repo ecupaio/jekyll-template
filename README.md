@@ -162,7 +162,7 @@ This will load `<script src="/min/js/site_functions.min.js"></script>` before th
 
 ### Images
 
-Add images to the `img` directory and grunt will output the overwrite images to the same directory.
+Add images to the `img` directory and grunt will minify the images and overwrite them to the same directory.
 
 ### Layouts
 
