@@ -18,7 +18,7 @@ Bundle is a tool for managing ruby dependencies. It is installed using a ruby pa
 `gem install bundle`
 
 ### NodeJS and NPM
-NodeJS and NPM are necesarry for running the grunt tasks. Follow [this guide](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) to get them installed. 
+NodeJS and NPM are necessary for running the grunt tasks. Follow [this guide](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) to get them installed. 
 
 
 ## Development
@@ -49,6 +49,8 @@ Go to `localhost:4000` to see it in action and `localhost:4000/admin` to access 
 
 Once you have the template copied to your repo, you can add the meta data through the config.yml:
 
+#### Sitewide Meta Data
+
 Open `_config.yml` file and edit the following fields to be included in your metadata:
 
 `title`
@@ -63,27 +65,32 @@ The image card for social share. This will need to be an absolute path to the pr
 `url`
 The domain of your site.
 
+#### Google Tag Manager
+
 `gtm`
 The Google Tag Manager ID for your site
+
+To obtain a Google Tag Manager ID, you must create an account and container on https://tagmanager.google.com/ and share with the rest of the engineering team. Read [Google's docs](https://support.google.com/tagmanager/answer/6103696?hl=en) on how to get it all setup. All you need to do to install it on the site is enter the ID in the `gtm` slot. 
+
+#### Meta Data for Pages
+
+You add meta data that will override the sitewide meta data for individual pages in the front matter. 
+
+```
+---
+title: Page Title
+description: page description
+meta_image: /img/page-meta-image.png
+---
+```
+
+Meta title will output as Page Title | Site Title. Everything else will output as entered. 
 
 #### Collections
 
 [Collections](https://jekyllrb.com/docs/collections/) are custom content types. There is a commented out collections in the `_config.yml` that can can uncomment to create your own collections. These are useful if you want to display unique sets of content like person bios or events.
 
-### HTML/Homepage
 
-Jekyll Admin supports full fledged websites that use layouts to display content on pages. The jekyll_spt is initially set up for a single page microsite that you can modify.
-
-Open `_layouts/index.html` to edit the structure of the homepage.
-
-Below is a list of what each variable displays and how to edit them:
-`{{ site.title }}` comes from the `title` object in `_config.yml`
-
-`{{ page.title }}` comes from the `index.md` title
-
-`{{ content }}` comes from the body of `index.md`
-
-`index` is the default layout for all pages created through jekyll.
 
 #### Includes
 Jekyll allows you to inject HTML into your content with pre-made html snippets. There are several includes that come with this template:
@@ -99,6 +106,11 @@ GA Event is a include to simply enter Google Analytics click events. Below is an
 *head.html*
 The head element that is on every page. You can add additional scripts and fonts here. Most of the config variables feed into here.
 
+*age-gate.html*
+You can enable this include by setting the age-gate variable in the  _config.yml to true: `age-gate: true`. 
+
+It's conditionally included in the `default.html` above the content. It's also powered by a local javascript file: `js/age-gate.html` and a plugin: [js-cookie](https://github.com/js-cookie/js-cookie). These scripts are also in `default.html` and will only be added when you set the age-gate variable to true. 
+
 ### SCSS
 
 All files in `scss` get prefixed for broswer compatibility and minified into the `css` directory. 
@@ -112,9 +124,20 @@ Locally loaded fonts can be imported via the `_fonts.scss` sheet.
 All underscored scss sheets are includes in style.scss
 
 #### PureCSS
-[PureCSS](https://purecss.io/) is the default library for this template. Some helpful tools from PureCSS are [buttons](https://purecss.io/buttons/) and [grids](https://purecss.io/grids/). Styles for the grids can be found in `scss/_pure-grid.scss`.
+[PureCSS](https://purecss.io/) is the default framework for this template. I just have the [grids](https://purecss.io/grids/) feature enabled for easy layouts. Styles for the grids can be found in `scss/_pure-grid.scss`.
 
-Responsive grids are configured with the breakpoints set in `_vars.scss`. 
+```
+<div class="pure-g>
+<div class="pure-u-1 pure-u-md-1-2">50% column</div>
+<div class="pure-u-1 pure-u-md-1-2">50% column</div>
+</div>
+```
+In the example above: 
+- `pure-g` is the grid container
+- `pure-u-1` is the grid width after the breakpoint is reached (100% width)
+- `pure-u-md-1-2` is the grid width (1-2 = 50%) set for the medium breakpoint (defined as 768px in _vars.scss).
+
+Responsive grids are configured with the breakpoints set in `_vars.scss`. You can change the breakpoint values and the grids will recognize them. 
 
 #### Mixins
 

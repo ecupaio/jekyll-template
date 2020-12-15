@@ -49,6 +49,8 @@ input[type="text"],input[type="email"],input[type="number"],textarea {
 	}
 }
 button {
+	box-shadow: none;
+	border: none;
 	&:active, &:focus {
 		outline: 0;
 	}

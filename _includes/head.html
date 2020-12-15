@@ -13,22 +13,41 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 {% endif %}
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Title and Meta Text -->
-<title>{{ site.title }}</title>
-<meta content="{{ site.description }}" name="description">
+{% if page.title %}
+{% capture title  %}
+{{page.title}} | {{site.title}}
+{% endcapture %}
+{% else %}
+{% assign title = site.title %}
+{% endif %}
+
+{% if page.description %}
+{% assign description = page.description%}
+{% else %}
+{% assign description = site.description %}
+{% endif %}
+
+{% if page.meta_img %}
+{% assign meta_img = page.meta_img %}
+{% else %}
+{% assign meta_img = site.meta_img %}
+{% endif %}
+<title>{{ title }}</title>
+<meta content="{{ description }}" name="description">
 <link rel="canonical" href="{{ site.url }}{{ page.url | remove: ".html" }}" />
 <!-- Facebook Meta -->
 <meta property="og:url" content="{{ site.url }}{{ page.url | remove: ".html" }}">
 <meta property="og:type" content="website">
-<meta property="og:title" content="{{ site.title }}">
-<meta property="og:description" content="{{ site.description }}">
-<meta property="og:image" content="{{ site.meta_img }}">
+<meta property="og:title" content="{{ title }}">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:image" content="{{ meta_img }}">
 <!-- Twitter Meta -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="{{ site.twitter }}">
 <meta name="twitter:creator" content="{{ site.twitter }}">
 <meta name="twitter:title" content="{{ site.title }}">
-<meta name="twitter:description" content="{{ site.description }}">
-<meta name="twitter:image" content="{{ site.url }}{{ site.meta_img }}">
+<meta name="twitter:description" content="{{ description }}">
+<meta name="twitter:image" content="{{ meta_img }}">
 <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -62,9 +81,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   </script>
 <!-- Pure CSS-->
-<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/base-min.css">
-<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-min.css">
-<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/base-min.css">
+<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-min.css">
 <!-- Base CSS -->
 {%- capture base-css -%}
 /css/style.min.css?{{site.time | date: '%s'}}

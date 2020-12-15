@@ -13,10 +13,26 @@ layout: compress
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     {% endif %}
+    {% if site.age-gate == true %}
+    {% include age-gate.html %}
+    {% endif %}
+    {% if layout.content-id %}
+    {% assign page-id = page.content-id %}
+    {% endif %}
+    {% if page.content-id %}
+    {% assign page-id = page.content-id %}
+    {% endif %}
+    <main id="{{ content-id }}">
     {{ content }}
+    </main>
     <!-- Scripts -->
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    {% if site.age-gate == true %}
+    <!-- age gate scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <script src="{{ '/js/min/age-gate.min.js' | relative_url }}"></script>
+    {% endif %}
     <!-- Sitewide scripts  -->
 	<script src="{{ '/js/min/site_functions.min.js' | relative_url }}"></script>
     <!-- Layout -->
@@ -34,5 +50,6 @@ layout: compress
     {% endfor %}
     {% endif %}
     <!-- End Scripts -->
+
 </body>
 </html>

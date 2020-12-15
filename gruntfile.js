@@ -11,22 +11,40 @@ module.exports = function(grunt) {
         }]
       }
     },
+    cwebp: {
+      target: {
+        options: {
+          q: 75
+        },
+        files: [{
+          expand: true,
+          cwd: 'img/',
+          src: ['**/*.{png,jpg,jpeg}'],
+          dest: 'img/'
+        }]
+      }
+    },
     watch: {
       imagemin: {
         files: 'img/*.{png,jpg,gif,jpeg,svg}',
         tasks: ['newer:imagemin:target']
       },
-      uglify: {
+      cwebp: {
+        files: 'img/*.{png,jpg,jpeg}',
+        tasks: ['newer:cwebp:target']
+      },
+      terser: {
         files: ['js/*.js',"js/min/!*.min.js"],
-        tasks: ['newer:uglify:target']
+        tasks: ['newer:terser:target']
       },
       css: {
         files: ['scss/*.scss'],
         tasks: ['sass', 'postcss']
       }
     },
-    uglify: {
+    terser: {
       options: {
+        compress: true,
         mangle: false
       },
       target: {
@@ -87,8 +105,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-newer');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-terser');
 	grunt.loadNpmTasks('grunt-concurrent');
   grunt.loadNpmTasks('grunt-shell');
-  grunt.registerTask('default', ['uglify','sass', 'postcss','concurrent:target']);
+  grunt.loadNpmTasks('grunt-cwebp');
+  grunt.registerTask('default', ['terser','sass', 'postcss','concurrent:target']);
 };

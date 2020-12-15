@@ -58,3 +58,8 @@ $default-shadow: 0px 3px 5px rgba(100, 100, 100, 0.5);
     @content;
   }
 }
+@mixin bp-custom($size-custom) {
+  @media only screen and (max-width: $size-custom) {
+    @content;
+  }
+}
