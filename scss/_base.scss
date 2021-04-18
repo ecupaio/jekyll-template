@@ -22,6 +22,7 @@ a {
 	font-weight: bold;
 	text-decoration: none;
 	color: $primary_color;
+	display: inline-block;
 	@include transition(color);
 	&:hover, &:active, &:focus {
 		color: darken($primary_color,15%);
