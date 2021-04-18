@@ -28,24 +28,22 @@ layout: compress
     <!-- Scripts -->
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    {% if site.age-gate == true %}
-    <!-- age gate scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
-    <script src="{{ '/js/min/age-gate.min.js' | relative_url }}"></script>
-    {% endif %}
     <!-- Sitewide scripts  -->
-	<script src="{{ '/js/min/site_functions.min.js' | relative_url }}"></script>
+    {% capture sitewide-js %}
+        /js/min/site_functions.min.js?{{site.time | date: '%s'}}
+    {% endcapture %}
+	<script src="{{ sitewide-js | relative_url }}"></script>
     <!-- Layout -->
     {% if layout.scripts %}
     {% for script in layout.scripts %}
-    {% capture script-path %}/js/min/{{ script }}.min.js{% endcapture %}
+    {% capture script-path %}/js/min/{{ script }}.min.js?{{site.time | date: '%s'}}{% endcapture %}
     <script src="{{ script-path | relative_url }}"></script>
     {% endfor %}
     {% endif %}
     <!-- Page -->
     {% if page.scripts %}
     {% for script in page.scripts %}
-    {% capture script-path %}/js/min/{{ script }}.min.js{% endcapture %}
+    {% capture script-path %}/js/min/{{ script }}.min.js?{{site.time | date: '%s'}}{% endcapture %}
     <script src="{{ script-path | relative_url }}"></script>
     {% endfor %}
     {% endif %}
