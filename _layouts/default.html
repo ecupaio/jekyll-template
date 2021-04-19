@@ -31,9 +31,9 @@ layout: compress
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Sitewide scripts  -->
-    {% capture sitewide-js %}
+    {%- capture sitewide-js -%}
         /js/min/site_functions.min.js?{{site.time | date: '%s'}}
-    {% endcapture %}
+    {%- endcapture -%}
 	<script src="{{ sitewide-js | relative_url }}"></script>
     <!-- Layout -->
     {% if layout.scripts %}
