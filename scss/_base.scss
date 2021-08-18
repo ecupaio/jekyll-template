@@ -44,7 +44,10 @@ h6 {
 	font-size: 0.75rem;
 }
 
-//Text Links
+//Links
+a {
+	text-decoration: none;
+}
 p {
 	a {
 		font-weight: bold;

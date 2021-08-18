@@ -34,6 +34,10 @@ layout: compress
     <!-- Slick -->
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     {% endif %}
+    {% if page.social-share == true or layout.social-share == true %}
+    <!-- Social Share -->
+    <script src="/js/min/social-share.min.js"></script>
+    {% endif %}
     <!-- Sitewide scripts  -->
     {%- capture sitewide-js -%}
         /js/min/site_functions.min.js?{{site.time | date: '%s'}}

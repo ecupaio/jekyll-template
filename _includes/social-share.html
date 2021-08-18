@@ -1,0 +1,21 @@
+<div class="social-share">
+  
+    <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url={{ site.url | url_encode}}{{ page.url | url_encode }}?utm_source=linkedin&utm_medium=share_button" target="_blank">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+    <a class="share-btn fbook" href="{{ site.url }}{{ page.url }}?utm_source=facebook&utm_medium=share_button" data-title="{{ page.title }}">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+    <a class="share-btn" href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url | url_encode}}{{ page.url | url_encode }}?utm_source=twitter&utm_medium=share_button">
+      <i class="fab fa-twitter"></i>
+    </a>
+    <a class="share-btn" href="mailto:?subject={{ page.title }}&body={{ site.url }}{{ page.url | url_encode }}?utm_source=email&utm_medium=share_button">
+      <i class="fa fa-envelope"></i>
+    </a>
+    <a class="share-btn copy" href="#">
+      <i class="fa fa-check"></i>
+      <i class="fa fa-link"></i>
+      <input class="copy-link" value="{{ site.url }}{{ page.url }}?utm_source=copy&utm_medium=share_button">
+    </a>
+   
+</div>
