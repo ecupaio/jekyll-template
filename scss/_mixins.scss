@@ -1,24 +1,10 @@
 //Default Transition
 @mixin transition($prop...) {
-	-webkit-transition-property: $prop;
-	-moz-transition-property: $prop;
-	-o-transition-property: $prop;
 	transition-property: $prop;
-	-webkit-transition-duration: $transition_duration;
-	-moz-transition-duration: $transition_duration;
-	-o-transition-duration: $transition_duration;
 	transition-duration: $transition_duration;
-	-webkit-transition-timing-function: ease;
-	-moz-transition-timing-function: ease;
-	-o-transition-timing-function: ease;
 	transition-timing-function: ease;
 }
-//Transform
-@mixin transform($prop...) {
-	-webkit-transform: $prop;
-	-moz-transform: $prop;
-	transform: $prop;
-}
+
 //Headings
 @mixin headings($from: 1, $to: 6){
     @for $i from $from through $to{

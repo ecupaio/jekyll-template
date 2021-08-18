@@ -11,23 +11,53 @@ body {
 	box-sizing: border-box; 
 }
 //Default Fonts
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5,h6 {
 	font-family: $header-font;
 	margin-top: 0;
 	margin-bottom: 1rem;
+	line-height: normal;
+}
+h1 {
+	font-size: 4rem;
 }
 
-//Links
-a {
-	font-weight: bold;
-	text-decoration: none;
-	color: $primary_color;
-	display: inline-block;
-	@include transition(color);
-	&:hover, &:active, &:focus {
-		color: darken($primary_color,15%);
+h2 {
+	font-size:  3.5rem;
+}
+h3 {
+	font-size: 3rem;
+}
+h4 {
+	font-size: 2.5rem;
+}
+h5 {
+	font-size: 2rem;
+}
+h6 {
+	font-size: 1.5rem;
+}
+
+.large {
+	font-size: 1.25rem;
+}
+.small {
+	font-size: 0.75rem;
+}
+
+//Text Links
+p {
+	a {
+		font-weight: bold;
+		text-decoration: none;
+		color: $primary_color;
+		display: inline-block;
+		@include transition(color);
+		&:hover, &:active, &:focus {
+			color: darken($primary_color,15%);
+		}
 	}
 }
+
 
 //Images 
 img {
@@ -49,7 +79,7 @@ input:not([type="checkbox"]),input:not([type="radio"]),textarea {
 		white-space: normal;
 	}
 }
-button {
+button,.btn {
 	box-shadow: none;
 	border: none;
 	&:active, &:focus {
