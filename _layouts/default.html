@@ -30,6 +30,10 @@ layout: compress
     <!-- Scripts -->
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    {% if page.slick == true or layout.slick == true %}
+    <!-- Slick -->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    {% endif %}
     <!-- Sitewide scripts  -->
     {%- capture sitewide-js -%}
         /js/min/site_functions.min.js?{{site.time | date: '%s'}}
@@ -50,6 +54,5 @@ layout: compress
     {% endfor %}
     {% endif %}
     <!-- End Scripts -->
-
 </body>
 </html>
