@@ -1,0 +1,71 @@
+@import "vars.scss";
+@import "mixins.scss";
+.slick-slider {
+  position: relative;
+  padding: 1rem 2rem;
+  //arrows
+  .slick-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    font-size: 0;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:before {
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900; 
+      font-size: 1rem;
+      line-height: 1;
+    }
+    &.slick-next {
+      right: 0;
+      &:before {
+        content: "\f054";
+      }
+    }
+    &.slick-prev {
+      left: 0;
+      &:before {
+        content: "\f053";
+      }
+    }
+  }
+  //slide 
+  .slick-slide {
+    padding: 1rem;
+  }
+  //dots 
+  .slick-dots {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    padding: 0;
+    li {
+      button {
+        font-size: 0;
+        background-color: $black;
+        opacity: 0.7;
+        border: none;
+        border-radius: 50%;
+        padding: 0;
+        $circle: 10px;
+        height: $circle;
+        width: $circle;
+        @include transition(opacity);
+      }
+      &.slick-active {
+        button {
+          opacity: 1;
+        }
+      }
+    }
+    
+  }
+
+}

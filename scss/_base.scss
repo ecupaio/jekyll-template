@@ -6,6 +6,7 @@ body {
 	font-family: $body-font;
 	font-size: 16px;
 	color: $text_color;
+	line-height: 1.5;
 }
 * {
 	box-sizing: border-box; 
@@ -13,8 +14,8 @@ body {
 //Default Fonts
 h1, h2, h3, h4, h5,h6 {
 	font-family: $header-font;
-	margin-top: 0;
-	margin-bottom: 1rem;
+	margin: 0;
+	
 	line-height: normal;
 }
 h1 {
