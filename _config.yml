@@ -48,8 +48,6 @@ responsive_image:
   base_path: img
   output_path_format: img/%{filename}-%{width}.%{extension}
 collections:
-  terms:
-    output: true
   pages: 
     output: true  
 defaults:
