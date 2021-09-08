@@ -23,7 +23,7 @@ schema:
     days:
     opens:
     closes:  
-timezone: America/New York
+timezone: America/New_York
 future: true
 markdown: kramdown
 kramdown:
@@ -38,20 +38,17 @@ sass:
   style: compressed
 plugins:
   - jekyll-sitemap
-  - jekyll-responsive-image
-responsive_image:
-  template: _includes/responsive-image.html
-  sizes:
-    - width: 320
-    - width: 480
-    - width: 1024
-  base_path: img
-  output_path_format: img/%{filename}-%{width}.%{extension}
 collections:
   pages: 
-    output: true  
+    output: true
+  redirects:
+    output: true    
 defaults:
 - scope:
     type: 'pages'
   values:
     layout: default
+- scope:
+    type: 'redirects'
+  values:
+    layout: redirect    

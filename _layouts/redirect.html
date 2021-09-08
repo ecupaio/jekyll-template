@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% if page.redirect_url contains 'http' %}
+    {% assign redirect = page.redirect_url %}
+    {% else %}
+    {% capture redirect %}
+    {{ site.url }}{{ page.redirect_url }}
+    {% endcapture %}
+    {% endif %}
+    <meta http-equiv="refresh" content="0; url={{ redirect }}">
+    <link rel="canonical" href="{{ redirect }}" />
+  </head>
+</html>
