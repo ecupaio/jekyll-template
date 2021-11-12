@@ -1,0 +1,8 @@
+<picture>
+  {% capture src -%}{{ include.src | strip }}{%- endcapture -%}
+  <source media="(min-width: 1366px)" srcset="{{ src | resize: '1366x' }}">
+  <source media="(min-width: 1024px)" srcset="{{ src | resize: '1024x' }}">
+  <source media="(min-width: 768px)" srcset="{{ src | resize: '1024x' }}">
+  <source media="(min-width: 568px)" srcset="{{ src | resize: '1024x' }}">
+  <img src="{{ src }}" alt="{{ include.alt }}" />
+</picture>
