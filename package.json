@@ -27,6 +27,6 @@
     "grunt-terser": "^1.0.0",
     "imagemin-mozjpeg": "^5.1.0",
     "imagemin-pngquant": "^4.2.2",
-    "node-sass": "^4.14.1"
+    "node-sass": "^7.0.0"
   }
 }
