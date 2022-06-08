@@ -1,6 +1,6 @@
 [build]
   publish = "_site"
-  command = "jekyll build"
+  command = "bundle exec jekyll build"
 [context.production]
   NODE_ENV = "production"
 [build.environment]
