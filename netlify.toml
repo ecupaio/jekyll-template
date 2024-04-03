@@ -1,7 +1,0 @@
-[build]
-  publish = "_site"
-  command = "bundle exec jekyll build"
-[context.production]
-  NODE_ENV = "production"
-[build.environment]
-  NODE_VERSION = "14.17.6"  
